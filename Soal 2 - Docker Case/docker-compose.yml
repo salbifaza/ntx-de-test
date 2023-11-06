@@ -1,2 +1,16 @@
+# Salbi Faza Rinaldi
 version: "3"
 services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "6000:6000"
+    depends_on:
+      - etl
+
+  etl:
+    build:
+      context: ./etl
+      dockerfile: Dockerfile
